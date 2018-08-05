@@ -1,12 +1,14 @@
-#%%
+import pandas as pd
 import matplotlib.pyplot as plt
-import matplotlib as mpl
-import numpy as np
 
-print("hello")
+a = list()
 
-#%%
+a = ["A", "b", "c"]
 
-x = np.linspace(0, 20, 100)
-plt.plot(x, np.sin(x))
-plt.show() 
+b = list()
+
+b = ["rg", "ah", "gh"]
+
+plt.plot(a, b, 'ro')
+# plt.axis([0, 6, 0, 20])
+plt.show()
