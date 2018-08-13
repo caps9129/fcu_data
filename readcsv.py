@@ -14,7 +14,7 @@ df_list = []
 arr_Student_Objects = []
 
 
-file_name = "./newdata/new20170213-{}.csv"
+file_name = "./newdata/new20170421-week-{}.csv"
 
 region_dict = {'行政一館':'aa', '忠勤樓':'ab', '語文大樓':'ac', '人言大樓':'ad', '理學院':'ae', '資訊電機館':'af',
                '商學院':'ah', '行政二館':'ba', '工學館':'bb', '建築館':'bc', '土水館':'bd', '圖書館':'be', '育樂館':'bg',
@@ -174,9 +174,26 @@ def main():
     
     for index in range(len(list_region)):
         list_region[index] = list(region_dict.keys())[list(region_dict.values()).index(list_region[index])]
+
+    for i in range(0,len(list_usercount)-1): #有n-1回合(n為數字個數)
+        for j in range(0,len(list_usercount)-1-i): #每回合進行比較的範圍
+            if list_usercount[j] > list_usercount[j+1]: #是否需交換
+                tmp = list_usercount[j]
+                list_usercount[j] = list_usercount[j+1]
+                list_usercount[j+1] = tmp
     
     plt.plot(list_usercount)
     plt.show()
+
+    for i in range(0,len(list_regioncount)-1): #有n-1回合(n為數字個數)
+        for j in range(0,len(list_regioncount)-1-i): #每回合進行比較的範圍
+            if list_regioncount[j] > list_regioncount[j+1]: #是否需交換
+                tmp = list_regioncount[j]
+                list_regioncount[j] = list_regioncount[j+1]
+                list_regioncount[j+1] = tmp
+                tmp = list_region[j]
+                list_region[j] = list_region[j+1]
+                list_region[j+1] = tmp
 
 
     plt.plot(list_region, list_regioncount)
